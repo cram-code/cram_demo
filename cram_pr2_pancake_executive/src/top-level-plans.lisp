@@ -44,9 +44,9 @@
                (cl-transforms:make-3d-vector 0.245 0.0 -0.015)
                (cl-transforms:euler->quaternion :ay 2.1))))
            (left-spatula-calibration
-             (cl-tf:pose->pose-stamped
-              "l_gripper_tool_frame" 0.0
-              (cl-transforms:transform->pose left-spatula-transform)))
+             (cl-transforms-plugin:make-pose-stamped
+              (cl-transforms:transform->pose left-spatula-transform)
+              "l_gripper_tool_frame" 0.0))
            (right-spatula-transform
              ;; combine two transforms
              (cl-transforms:transform*
@@ -59,9 +59,9 @@
                (cl-transforms:make-3d-vector 0.245 0.0 -0.015)
                (cl-transforms:euler->quaternion :ay 2.1))))
            (right-spatula-calibration
-             (cl-tf:pose->pose-stamped
-              "r_gripper_tool_frame" 0.0
-              (cl-transforms:transform->pose right-spatula-transform))))
+             (cl-transforms-plugin:make-pose-stamped
+              (cl-transforms:transform->pose right-spatula-transform)
+              "r_gripper_tool_frame" 0.0)))
       (with-designators
           ((pancake-loc (location `((on oven)
                                     (pose ,(cl-tf:make-pose-stamped 

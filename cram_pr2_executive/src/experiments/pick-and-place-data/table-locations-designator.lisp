@@ -100,7 +100,7 @@
          (obj (desig-prop-value desig 'for)))
     (when (or name (desig-prop-value desig 'on) obj)
       (mapcar (lambda (pose)
-                (tf:copy-pose-stamped
+                (cl-transforms-plugin:copy-ext-pose-stamped
                  pose :orientation (calculate-obj-desig-orientation
                                     obj (cl-transforms:orientation pose))))
               (if pose

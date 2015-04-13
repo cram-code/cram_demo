@@ -76,7 +76,7 @@
                      'location
                      `((in gripper)
                        (side ,?side)
-                       (pose ,(tf:copy-pose-stamped
+                       (pose ,(cl-transforms-plugin:copy-ext-pose-stamped
                                (cl-tf:transform-pose
                                 *tf* :pose obj-pose
                                 :target-frame (ecase ?side

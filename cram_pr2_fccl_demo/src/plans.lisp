@@ -326,7 +326,7 @@
 (defun transform-pose-ignoring-stamp (pose-stamped target-frame)
   (cl-tf:transform-pose 
    (get-tf-listener)
-   :pose (cl-tf:copy-pose-stamped pose-stamped :stamp 0.0)
+   :pose (cl-transforms-plugin:copy-ext-pose-stamped pose-stamped :stamp 0.0)
    :target-frame target-frame))
 
 (defun pose-stamped->transform-stamped (pose-stamped child-frame-id)
@@ -340,7 +340,7 @@
 ;;;
 
 (defun change-pose-orientation (pose orientation)
-  (cl-tf:copy-pose-stamped pose :orientation orientation))
+  (cl-transforms-plugin:copy-ext-pose-stamped pose :orientation orientation))
 
 (defun calculate-pointing-orientation (pose)
   (let* ((x-rot (cl-transforms:copy-3d-vector
